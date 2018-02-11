@@ -1,4 +1,5 @@
 {
+    "name": "twizz/case_study",
     "autoload": {
         "psr-4": {
             "Lpp\\": "src/Lpp/"
