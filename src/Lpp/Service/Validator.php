@@ -8,7 +8,7 @@ class Validator {
         if (filter_var($url, FILTER_VALIDATE_URL)) {
             return $url;
         } else {
-            throw new \Exception(sprintf('Url nie poprawny'));
+            throw new \UnexpectedValueException(sprintf('url "%s" validation failed', $url));
         }
     }
 

@@ -37,7 +37,7 @@ class ItemService implements ItemServiceInterface {
         if (file_exists($path)) {
             return json_decode(file_get_contents($path));
         } else {
-            throw new \Exception(sprintf('Kolekcja o numerze %s nie istnieje', $collectionId));
+            throw new \InvalidArgumentException(sprintf('collection %s not exist', $collectionId));
         }
     }
 
