@@ -4,7 +4,7 @@ namespace Lpp\Service;
 
 class Validator {
 
-    public function checkUrl($url) {
+    public function checkUrl(string $url): string {
         if (filter_var($url, FILTER_VALIDATE_URL)) {
             return $url;
         } else {

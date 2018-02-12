@@ -30,7 +30,7 @@ class UnorderedBrandService implements \Lpp\Service\BrandServiceInterface {
      *
      * @return \Lpp\Entity\Brand[]
      */
-    public function getBrandsForCollection($collectionName) {
+    public function getBrandsForCollection(string $collectionName): array {
         if (empty($this->collectionNameToIdMapping[$collectionName])) {
             throw new \InvalidArgumentException(sprintf('Provided collection name [%s] is not mapped.', $collectionName));
         }
@@ -52,7 +52,7 @@ class UnorderedBrandService implements \Lpp\Service\BrandServiceInterface {
         $this->itemService = $itemService;
     }
 
-    public function getItemsForCollection($collectionName) {
+    public function getItemsForCollection(string $collectionName) {
 
     }
 

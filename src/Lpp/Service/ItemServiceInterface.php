@@ -2,6 +2,8 @@
 
 namespace Lpp\Service;
 
+use \Closure;
+
 /**
  * Represents the connection to a specific item store.
  * For the case study we will pretend we have only one item store to make things easier.
@@ -17,7 +19,7 @@ interface ItemServiceInterface {
      *
      * @return Lpp\Entity\Brand[]
      */
-    public function getResultForCollectionId($collectionId);
+    public function getResultForCollectionId(int $collectionId): array;
 
-    public function setOrderFunction($function);
+    public function setOrderFunction(Closure $function);
 }

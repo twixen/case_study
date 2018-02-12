@@ -18,7 +18,7 @@ class ItemService implements ItemServiceInterface {
         $this->_validator = new Validator();
     }
 
-    public function getResultForCollectionId($collectionId) {
+    public function getResultForCollectionId(int $collectionId): array {
         if (!array_key_exists($collectionId, $this->_collection)) {
             $this->_collection[$collectionId] = $this->jsonToObject($this->getJsonCollection($collectionId));
         }
@@ -28,11 +28,11 @@ class ItemService implements ItemServiceInterface {
         return $this->_collection[$collectionId];
     }
 
-    public function setOrderFunction($function) {
+    public function setOrderFunction(Closure $function) {
         $this->_sort_function = $function;
     }
 
-    private function getJsonCollection($collectionId) {
+    private function getJsonCollection(int $collectionId): object {
         $path = DATA_SRC . DIRECTORY_SEPARATOR . $collectionId . '.json';
         if (file_exists($path)) {
             return json_decode(file_get_contents($path));
@@ -41,7 +41,7 @@ class ItemService implements ItemServiceInterface {
         }
     }
 
-    private function jsonToObject($json) {
+    private function jsonToObject(object $json): array {
         $collection = [];
         foreach ($json->brands as $brand_key => $brand) {
             $new_brand = new Brand();
